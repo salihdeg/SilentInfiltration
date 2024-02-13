@@ -8,9 +8,16 @@ public class GameStartManager : MonoBehaviour
     [SerializeField] private ThirdPersonController _thirdPersonController;
     [SerializeField] private GameObject _cinematicComponents;
     [SerializeField] private CinemachineDollyCart _dollyCart;
+    [SerializeField] private bool DEBUG = false;
 
     private void Start()
     {
+        if (DEBUG) // In Development Mod, skip cinematic
+        {
+            EndCinematic();
+            return;
+        }
+
         if (!GameRestartManager.isRestart)
         {
             _thirdPersonController.DisableController();
