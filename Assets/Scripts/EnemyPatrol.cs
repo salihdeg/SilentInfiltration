@@ -71,5 +71,6 @@ public class EnemyPatrol : MonoBehaviour
         //direction.z = 0;
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 3 * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
     }
 }
